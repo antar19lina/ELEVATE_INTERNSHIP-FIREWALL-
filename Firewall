@@ -1,0 +1,46 @@
+🔥 Firewall Configuration & Traffic Filtering Guide
+🛠 Commands / GUI Steps Used------:
+________________________________________________________________
+💻 Windows Firewall (GUI)
+1️⃣ Open Windows Defender Firewall with Advanced Security (wf.msc).
+2️⃣ Navigate to Inbound Rules → New Rule.
+3️⃣ Select Port → TCP → enter 23.
+4️⃣ Choose Block the connection → Name the rule → Finish.
+5️⃣ Remove Rule → Locate it in Inbound Rules → Right-click → Delete.
+_________________________________________________________________________
+
+🐧 Linux (UFW - Commands)
+bash
+Copy
+Edit
+_________________________________________________________________________
+# 📜 View current rules
+sudo ufw status numbered
+
+# 🚫 Block inbound traffic on port 23
+sudo ufw deny 23/tcp
+
+# 🧪 Test connection locally/remotely
+telnet localhost 23
+nmap -p 23 your_ip
+
+# ✅ Ensure SSH remains allowed
+sudo ufw allow 22/tcp
+
+# ♻️ Remove block rule
+sudo ufw delete deny 23/tcp
+🔍 How a Firewall Filters Traffic
+______________________________________________________________
+A firewall works like a security gatekeeper 🚪 for your network:
+
+✔️ Allows packets that match your security rules.
+
+❌ Blocks packets that are unauthorized or suspicious.
+
+Filters based on port numbers, IP addresses, and protocols.
+__________________________________________________________________
+By controlling inbound and outbound traffic, it protects systems from:
+🛡 Unauthorized access
+🐞 Malware communication
+🚷 Network attacks
+
